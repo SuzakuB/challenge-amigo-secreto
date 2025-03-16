@@ -17,7 +17,10 @@ function agregarAmigo() {
 
 function actualizarListaVisual() {
     const lista = document.getElementById('listaAmigos');
-    lista.innerHTML = amigos.map(nombre => 
-        `<li>${nombre}</li>`
-    ).join('');
+    lista.innerHTML = "";
+    for (let i = 0; i < amigos.length; i++) {
+        const elementoLista = document.createElement("li");
+        elementoLista.textContent = amigos[i];
+        lista.appendChild(elementoLista);
+    } 
 }
