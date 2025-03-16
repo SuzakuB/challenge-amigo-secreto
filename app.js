@@ -22,6 +22,28 @@ function actualizarListaVisual() {
     for (let i = 0; i < amigos.length; i++) {
         html += `<li>${amigos[i]}</li>`;
     } 
-    
+
     lista.innerHTML = html;
+}
+
+function sortearAmigo() {
+    // Validar amigos disponibles
+    if (amigos.length === 0) {
+        alert("¡No hay amigos para sortear!");
+        return;
+    }
+
+    //Indice aleatorio
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    // Obtener nombre
+    const amigosSorteado = amigos[indiceAleatorio];
+
+    // Resultado
+    const resultadoElemento = document.getElementById('resultado');
+    resultadoElemento.innerHTML = `
+        <li>
+            <span class="sorteados">${amigosSorteado}</span>
+        <li>
+    `;
 }
