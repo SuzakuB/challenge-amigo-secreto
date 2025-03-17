@@ -29,21 +29,20 @@ function actualizarListaVisual() {
 function sortearAmigo() {
     // Validar amigos disponibles
     if (amigos.length === 0) {
-        alert("¡No hay amigos para sortear!");
+        alert("¡Agrega amigos primero!");
         return;
     }
 
     //Indice aleatorio
-    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    const resultadoElemento = document.getElementById('resultado');
 
     // Obtener nombre
-    const amigosSorteado = amigos[indiceAleatorio];
+    const amigo = amigos[Math.floor(Math.random() * amigos.length)];
 
-    // Resultado
-    const resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.innerHTML = `
+    // Agregar nuevo resultado sin borrar anteriores
+    resultadoElemento.innerHTML += `
         <li>
-            <span class="sorteados">${amigosSorteado}</span>
-        <li>
+            <span class="sorteado">${amigo}</span>
+        </li>
     `;
 }
